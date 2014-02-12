@@ -22,7 +22,7 @@ shall not be used in advertising or otherwise to promote the sale, use or other
 dealings in this Software without prior written authorization from Digital
 Equipment Corporation.
 ******************************************************************/
-/*  
+/*
  *	PanoramiX definitions
  */
 
@@ -36,12 +36,12 @@ Equipment Corporation.
 typedef struct {
     Window  window;         /* PanoramiX window - may not exist */
     int	    screen;
-    int     State;          /* PanroamiXOff, PanoramiXOn */
+    int     State;          /* PanoramiXOff, PanoramiXOn */
     int	    width;	    /* width of this screen */
     int     height;	    /* height of this screen */
     int     ScreenCount;    /* real physical number of screens */
     XID     eventMask;      /* selected events for this client */
-} XPanoramiXInfo;    
+} XPanoramiXInfo;
 
 _XFUNCPROTOBEGIN
 
