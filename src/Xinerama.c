@@ -1,4 +1,3 @@
-/* $Xorg: XPanoramiX.c,v 1.4 2000/08/17 19:45:51 cpqbld Exp $ */
 /*****************************************************************
 Copyright (c) 1991, 1997 Digital Equipment Corporation, Maynard, Massachusetts.
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +22,7 @@ shall not be used in advertising or otherwise to promote the sale, use or other
 dealings in this Software without prior written authorization from Digital
 Equipment Corporation.
 ******************************************************************/
-/* $XFree86: xc/lib/Xinerama/Xinerama.c,v 1.2 2001/07/23 17:20:28 dawes Exp $ */
 
-#define NEED_EVENTS
-#define NEED_REPLIES
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/Xext.h>
@@ -38,7 +34,7 @@ Equipment Corporation.
 
 static XExtensionInfo _panoramiX_ext_info_data;
 static XExtensionInfo *panoramiX_ext_info = &_panoramiX_ext_info_data;
-static /* const */ char *panoramiX_extension_name = PANORAMIX_PROTOCOL_NAME;
+static const char *panoramiX_extension_name = PANORAMIX_PROTOCOL_NAME;
 
 #define PanoramiXCheckExtension(dpy,i,val) \
   XextCheckExtension (dpy, i, panoramiX_extension_name, val)
@@ -62,7 +58,7 @@ static /* const */ XExtensionHooks panoramiX_extension_hooks = {
 };
 
 static XEXT_GENERATE_FIND_DISPLAY (find_display, panoramiX_ext_info,
-				   panoramiX_extension_name, 
+				   panoramiX_extension_name,
 				   &panoramiX_extension_hooks,
 				   0, NULL)
 
@@ -205,7 +201,7 @@ Status XPanoramiXGetScreenSize (
     req->reqType = info->codes->major_opcode;
     req->panoramiXReqType = X_PanoramiXGetScreenSize;
     req->window = drawable;
-    req->screen = screen_num;			/* need to define */ 
+    req->screen = screen_num;			/* need to define */
     if (!_XReply (dpy, (xReply *) &rep, 0, xTrue)) {
 	UnlockDisplay (dpy);
 	SyncHandle ();
@@ -267,7 +263,7 @@ Bool XineramaIsActive(Display *dpy)
     return rep.state;
 }
 
-XineramaScreenInfo * 
+XineramaScreenInfo *
 XineramaQueryScreens(
    Display *dpy,
    int     *number
